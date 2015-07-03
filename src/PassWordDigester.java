@@ -46,7 +46,7 @@ public class PassWordDigester {
 	  public static void main(String[] args){
 	   String a = "qazwsx";
 	   System.out.println(getPassMD5(a));
-	   
+	   System.out.println("再次测试!!!");
 	  }
 	}
 
