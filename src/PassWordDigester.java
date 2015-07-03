@@ -14,7 +14,6 @@ public class PassWordDigester {
 	            }
 	            byte[] bPass = pass.getBytes("UTF-8");
 	            md.update(bPass);
-//	            keys = new String(md.digest(), "GBK");
 	            keys = bytesToHexString(md.digest());
 	        }
 	        catch (NoSuchAlgorithmException aex) {
@@ -27,7 +26,6 @@ public class PassWordDigester {
 	    }
 	     
 	    /**
-	     * 将beye[]转换为十六进制字符串
 	     * @param bArray
 	     * @return
 	     */
