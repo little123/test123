@@ -1,26 +1,23 @@
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PassWordDigester {
 
-
-    public Integer getPassMD5(String password) {
-        Integer keys = Integer.valueOf(password);
-        String keyStr = "";
-        try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            if (password == null) {
-                keys = 0;
-            }
-            byte[] bPass = password.getBytes("UTF-8");
-            md.update(bPass);
-            keyStr = bytesToHexString(md.digest());
-        } catch (NoSuchAlgorithmException aex) {
-            aex.printStackTrace();
-        } catch (java.io.UnsupportedEncodingException uex) {
-            uex.printStackTrace();
+    /**
+     * 测试冲突
+     */
+    public static String getPassMD5(){
+        List<String> lst1 = new ArrayList<>();
+        List<String> lst2 = new ArrayList<>();
+        lst1.add("北京");
+        lst1.add("上海");
+        lst2.add("南京");
+        lst2.add("重庆");
+        lst1.addAll(lst2);
+        for (int i = 0; i < lst1.size(); i++) {
+            System.out.println(lst1.get(i));
         }
-        return new Integer(keyStr);
+        return "";
     }
 
     /**
@@ -29,10 +26,12 @@ public class PassWordDigester {
      */
     public static final String bytesToHexString(byte[] bArray) {
        StringBuffer ss = new StringBuffer();
+        System.out.println(ss.toString()+"this is a test!");
         for (byte b :
                 bArray) {
             ss.append(Byte.toString(b));
         }
+
         return  ss.toString();
     }
 
@@ -40,7 +39,7 @@ public class PassWordDigester {
     public static void main(String[] args) {
         String a = "qazwsx";
         PassWordDigester passWordDigester = new PassWordDigester();
-        String keys = passWordDigester.getPassMD5(a).toString();
+        String keys = passWordDigester.getPassMD5().toString();
         System.out.println(keys);
         StringBuffer buffer = new StringBuffer();
         buffer.append(a);
