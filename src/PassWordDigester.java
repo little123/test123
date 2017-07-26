@@ -1,18 +1,17 @@
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-
 public class PassWordDigester {
+
 	
-	
-	 public static String getPassMD5(String pass) {
+	 public static Integer getPassMD5(String password) {
 	        String keys = null;
 	        try {
 	            MessageDigest md = MessageDigest.getInstance("MD5");
-	            if (pass == null) {
-	                pass = "";
+	            if (password == null) {
+					keys = "";
 	            }
-	            byte[] bPass = pass.getBytes("UTF-8");
+	            byte[] bPass = password.getBytes("UTF-8");
 	            md.update(bPass);
 	            keys = bytesToHexString(md.digest());
 	        }
@@ -22,7 +21,7 @@ public class PassWordDigester {
 	        catch (java.io.UnsupportedEncodingException uex) {
 	        	uex.printStackTrace();
 	        }
-	        return keys;
+	        return Integer.getInteger(keys);
 	    }
 	     
 	    /**
